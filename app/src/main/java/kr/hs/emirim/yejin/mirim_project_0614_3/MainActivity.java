@@ -14,23 +14,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         vFlip = findViewById(R.id.vflip);
-        Button btnPrev = findViewById(R.id.btn_prev);
-        Button btnNext = findViewById(R.id.btn_next);
+        Button btnStart = findViewById(R.id.btn_start);
+        Button btnStop = findViewById(R.id.btn_stop);
+        Button btnSceond = findViewById(R.id.btn_second);
 
-        btnPrev.setOnClickListener(btnListener);
-        btnNext.setOnClickListener(btnListener);
+        btnStart.setOnClickListener(btnListener);
+        btnStop.setOnClickListener(btnListener);
     }
 
     View.OnClickListener btnListener = new View.OnClickListener(){
         @Override
         public void onClick(View view){
             switch (view.getId()){
-                case R.id.btn_prev:
-                    vFlip.showPrevious();
+                case R.id.btn_start:
+                    vFlip.startFlipping();
                     break;
-                case R.id.btn_next:
-                    vFlip.showNext();
+                case R.id.btn_stop:
+                    vFlip.stopFlipping();
                     break;
+                case R.id.btn_second:
             }
         }
     };
