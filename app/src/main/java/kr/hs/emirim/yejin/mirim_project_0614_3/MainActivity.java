@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
     ViewFlipper vFlip;
+    EditText editInterval;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         vFlip = findViewById(R.id.vflip);
+        editInterval = findViewById(R.id.edit_interval);
         Button btnStart = findViewById(R.id.btn_start);
         Button btnStop = findViewById(R.id.btn_stop);
         Button btnSceond = findViewById(R.id.btn_second);
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
                     vFlip.stopFlipping();
                     break;
                 case R.id.btn_second:
+                    int second = Integer.parseInt(editInterval.getText().toString());
+                    vFlip.setFlipInterval(second*1000);
+                    break;
             }
         }
     };
